@@ -9,7 +9,7 @@ require("dotenv").config()
 const {subscribe} = require("./controllers.js/subscribe")
 
 const port = process.env.PORT; // Port on which the server will listen
-const PRIVATE_KEY_1 = process.env.PRIVATE_KEY_1;
+const ENCRYPTION_PRIVATE_KEY = process.env.ENCRYPTION_PRIVATE_KEY;
 const ONDC_PUBLIC_KEY = process.env.ONDC_PUBLIC_KEY;
 const REQUEST_ID = process.env.REQUEST_ID;
 const SIGNING_PRIVATE_KEY = process.env.SIGNING_PRIVATE_KEY;
@@ -33,7 +33,7 @@ const htmlFile = `
 `;
 // Pre-defined public and private keys
 const privateKey = crypto.createPrivateKey({
-  key: Buffer.from(PRIVATE_KEY_1, 'base64'), // Decode private key from base64
+  key: Buffer.from(ENCRYPTION_PRIVATE_KEY, 'base64'), // Decode private key from base64
   format: 'der', // Specify the key format as DER
   type: 'pkcs8', // Specify the key type as PKCS#8
 });
